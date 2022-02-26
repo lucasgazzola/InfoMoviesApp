@@ -1,0 +1,17 @@
+<section class="section__films">
+  <div class="container">
+    <form (ngSubmit)="handleSubmit(search)" class="search">
+      <label for="search">Search:</label>
+      <input 
+        type="text" 
+        name="search" 
+        placeholder="Search a movie..."
+        [(ngModel)]="search"
+      />
+      <button type="submit">Search</button>
+    </form>
+  </div>
+  <div class="container__results">
+    <app-film-item [films]="films"></app-film-item>
+  </div>
+</section>
