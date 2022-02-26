@@ -1,5 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { Observable, Observer } from 'rxjs';
 import { Film } from 'src/app/interfaces/interfaces';
+import { GetFilmsService } from 'src/app/services/get-films.service';
 
 @Component({
   selector: 'app-film-item',
@@ -8,7 +10,11 @@ import { Film } from 'src/app/interfaces/interfaces';
 })
 export class FilmItemComponent {
  
-  @Input() films: Film[] = [];
+  films!: Observable<Film[]>;
 
-  constructor() { }
+  constructor(private getFilmsService: GetFilmsService) { }
+
+  ngOnInit(): void {
+    this.films = this.getFilmsService.filmsList
+  }
 }
