@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs/internal/Observable';
 
 import { Film, Result } from 'src/app/interfaces/interfaces';
 
@@ -13,14 +14,16 @@ import {GetFilmsService} from '../../services/get-films.service';
 
 export class FilmsComponent implements OnInit {
   search: string = '';
-  films!: Film[];
+  films = this.getFilmsService.filmsList;
 
-  constructor(private getFilmsSvs: GetFilmsService) { }
+  constructor(private getFilmsService: GetFilmsService) { }
 
-  ngOnInit(): void { }
+  ngOnInit(): void {
+    this.getFilmsService.updateFilmSearch(this.search);
+  }
 
-  handleSubmit(value: string) {
-    this.getFilmsSvs.getFilms(value).subscribe(res => this.films = res)
+  handleSubmit(): void {
+    this.getFilmsService.updateFilmSearch(this.search);
   }
 
 }

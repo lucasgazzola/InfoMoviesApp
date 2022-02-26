@@ -1,6 +1,6 @@
 <section class="section__films">
   <div class="container">
-    <form (ngSubmit)="handleSubmit(search)" class="search">
+    <form (ngSubmit)="handleSubmit()" class="search">
       <label for="search">Search:</label>
       <input 
         type="text" 
@@ -12,6 +12,6 @@
     </form>
   </div>
   <div class="container__results">
-    <app-film-item [films]="films"></app-film-item>
+    <app-film-item></app-film-item>
   </div>
 </section>
