@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { Observable } from 'rxjs';
 import { Film } from 'src/app/interfaces/interfaces';
 
 @Component({
@@ -11,17 +12,17 @@ import { Film } from 'src/app/interfaces/interfaces';
 
 export class FilmDetailComponent implements OnInit {
 
-  @Input() films: Film[] = [];
+//   films!: Observable<Film[]>;
   
-  id:number | undefined;
-  constructor(private route: ActivatedRoute) { }
+//   id:number | undefined;
+//   constructor(private route: ActivatedRoute, private films$: Observable<Film[]>) { }
 
   ngOnInit(): void {
-    this.route.params.subscribe((params) => {
-      this.id = params["id"];
-    });
+//     this.route.params.subscribe((params) => {
+//       this.id = params["id"];
+//     });
 
-    console.log(this.id)
-    console.log(this.films)
+//     console.log(this.id)
+//     console.log(this.films)
   }
 }
