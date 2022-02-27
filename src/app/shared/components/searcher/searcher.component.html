@@ -1,0 +1,19 @@
+<div class="container">
+  <form 
+  (ngSubmit)="handleSubmit()"
+  class="search">
+    <label *ngIf="lastSearch === ''" for="search">
+      <span>What movie would you like to search?</span>
+    </label>
+    <input 
+      type="text" 
+      name="search" 
+      placeholder="Search a movie..."
+      [(ngModel)]="search"
+    />
+    <button type="submit">🔎</button>
+  </form>
+  <h2 *ngIf="lastSearch">
+      Last search: <span class="last-search">{{ lastSearch }}</span>
+  </h2>
+</div>
