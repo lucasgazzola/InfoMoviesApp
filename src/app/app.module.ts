@@ -6,17 +6,21 @@ import { AppComponent } from './app.component';
 import { FilmsModule } from './films/films.module';
 import { HeaderComponent } from './shared/components/header/header.component';
 import {  HttpClientModule } from '@angular/common/http';
+import { SearcherComponent } from './shared/components/searcher/seacher.component';
+import { FormsModule } from '@angular/forms';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    HeaderComponent
+    HeaderComponent,
+    SearcherComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FilmsModule,
+    FormsModule,
     HttpClientModule
   ],
   providers: [],

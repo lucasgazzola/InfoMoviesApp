@@ -1,5 +1,5 @@
-import { Component, Input, OnInit } from '@angular/core';
-import { Observable, Observer } from 'rxjs';
+import { Component } from '@angular/core';
+import { Observable } from 'rxjs';
 import { Film } from 'src/app/interfaces/interfaces';
 import { GetFilmsService } from 'src/app/services/get-films.service';
 

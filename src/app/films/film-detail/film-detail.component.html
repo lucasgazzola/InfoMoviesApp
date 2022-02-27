@@ -1,24 +1,72 @@
-<header>
-  <h1>
-    title(original title)
-  </h1>
-</header>
-<main>
-  <img alt="" />
-  <h5>
-    Release date: 
-  </h5>
-  <p>
-    Calificación: 
-  </p>
-  <p>
-    Original Language: 
-  </p>
-  <p>
-    Overview:
-  </p>
-  <p>
-    Popularity
-    Vote average of quantity of votes
-  </p>
-</main>
+<div class="container">
+  <header>
+    <h1>
+      {{this.film?.title}}
+    </h1>
+  </header>
+  <main>
+    <img alt="{{this.film?.title}}" src="https://image.tmdb.org/t/p/w500{{this.film?.poster_path}}"/>
+    <h3>
+      Runtime: {{this.film?.runtime}} minutes
+    </h3>
+    
+    <h3>
+      Genres: 
+    </h3>
+    <ul class="genres-list">
+      <li *ngFor="let genre of this.film?.genres">
+        <h4>
+          {{genre.name}}
+        </h4> 
+      </li>
+    </ul>
+
+    <h3>
+      Production Countries:
+    </h3> 
+    <ul class="countries-list">
+      <li *ngFor="let country of this.film?.production_countries">
+        <img alt='{{country.name}} flag' src="https://www.filmaffinity.com/imgs/countries2/{{country.iso_3166_1}}.png"> {{country.name}} 
+      </li>
+    </ul>
+    
+    <h3>
+      Production Companies: 
+    </h3>
+    <ul class="companies-list">
+      <li *ngFor="let company of this.film?.production_companies">
+        <img alt='{{company.name}} logo' src="https://image.tmdb.org/t/p/w500{{company.logo_path}}"> 
+      </li>
+    </ul>
+    
+    <h5>
+      Release date: {{this.film?.release_date}}
+    </h5>
+    <p>
+      Vote average: {{this.film?.vote_average}}
+    </p>
+    <p>
+      Original Language: {{this.film?.original_language}}
+    </p>
+    <p>
+      Overview: {{this.film?.overview}}
+    </p>
+    <p>
+      Budget: {{this.film?.budget | currency}}<br/>
+      Revenue: {{this.film?.revenue | currency}}
+    </p>
+    <p>
+      Homepage: 
+      <a href="{{this.film?.homepage}}" target="_blank">
+        Go to homepage...
+      </a>
+    </p>
+  </main>
+</div>
+
+<!-- {
+  
+  "genres": [],
+  
+  
+  } -->
