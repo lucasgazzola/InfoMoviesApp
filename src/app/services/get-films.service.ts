@@ -9,7 +9,7 @@ import { Film, Result } from '../interfaces/interfaces';
 })
 
 export class GetFilmsService {
-  private apiURL = `${environment.API_URL}?api_key=${environment.API_KEY}&query=`
+  private apiURL = `${environment.API_URL}?api_key=${environment.API_KEY}`
   private _films = new BehaviorSubject<Film[]>([]);
   private _lastSearch = new BehaviorSubject<string>('');
 
@@ -19,7 +19,7 @@ export class GetFilmsService {
   constructor(private http: HttpClient) { }
 
   updateFilmSearch(search: string): void {
-    this.http.get<Result>(this.apiURL+search)
+    this.http.get<Result>(this.apiURL+"&query="+search)
     .subscribe({
       next: (data) => {
         this._films.next(data.results);
@@ -28,7 +28,6 @@ export class GetFilmsService {
       error : (error) => {
         console.log('Could not load films: ', error);
     }});
-    
   }
   
   get filmsList(): Observable<Film[]>{
