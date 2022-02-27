@@ -14,16 +14,19 @@ import {GetFilmsService} from '../../services/get-films.service';
 
 export class FilmsComponent implements OnInit {
   search: string = '';
-  films = this.getFilmsService.filmsList;
-
+  films$!: Film[];
+  lastSearch$!: string;
+  
   constructor(private getFilmsService: GetFilmsService) { }
 
   ngOnInit(): void {
-    this.getFilmsService.updateFilmSearch(this.search);
+    console.log(this.lastSearch$);
+    this.getFilmsService.filmsList.subscribe((filmList: Film[]) => this.films$ = filmList);
+    this.getFilmsService.lastSearchValue.subscribe(search => this.lastSearch$ = search);
   }
 
   handleSubmit(): void {
     this.getFilmsService.updateFilmSearch(this.search);
+    this.search = '';
   }
-
 }
