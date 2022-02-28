@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { FilmsComponent } from './films/films/films.component';
-import { FilmDetailComponent } from './films/film-detail/film-detail.component';
+import { FilmsComponent } from './pages/films/components/films/films.component';
+import { FilmDetailComponent } from './pages/films/components/film-detail/film-detail.component';
 
 const routes: Routes = [
   {path: '', pathMatch: 'full', redirectTo: 'films'},

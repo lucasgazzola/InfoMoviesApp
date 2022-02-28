@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Film } from 'src/app/interfaces/interfaces';
-import { GetFilmsService } from 'src/app/services/get-films.service';
+import { GetFilmsService } from '../../services/get-films.service';
 
 @Component({
   selector: 'app-film-item',
