@@ -8,7 +8,7 @@ a{
   display: grid;
   box-sizing: border-box;
   grid-gap: 2rem;
-  grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(300px, 400px));
   width: 100%;
   justify-items: center;
   justify-content: center;
@@ -16,8 +16,6 @@ a{
   .card__content{
     display: flex;
     flex-direction: column;
-    max-width: 100%;
-    min-width: 60%;
     height: auto;
     box-sizing: border-box;
     background-color: rgb(27 63 163);
@@ -29,32 +27,39 @@ a{
       width: auto;
     }
     &--title{
-      h2{
-        background-color: #000000a1;
-        font-family: 'Kanit', cursive;
-        color: #ddd;
-        font-size: xx-large;
-        font-weight: 500;
-        margin: 0;
-        padding: 1rem 2rem;
-      }
+      background-color: #000000a1;
+      font-family: 'Kanit', cursive;
+      color: #ddd;
+      font-size: 1.3rem;
+      font-weight: 500;
+      margin: 0px;
+      padding: 1rem 2rem;
+      line-height: 1rem;      
     }
     &--link{
-      font-size: 1rem;
-      text-decoration: underline;
-      color: #111;
+      font-size: .8rem;
+      text-decoration: none;
+      color: #000;
+      font-weight: 700;
       padding: 0.5rem 1rem; 
       display: inline;
       padding: 0.5rem 1rem;
       width: -moz-fit-content;
       width: fit-content;
       align-self: center;
-      background-color: #999;
+      background-color: rgb(20, 165, 175);
+      box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.75);
+      &:hover{
+        background-color: rgb(30, 215, 228);
+        color: #fff;
+        transform: scale(1.2);
+        transition: all .1s linear;
+      }
     }
     &--description{
       font-family: sans-serif;
       padding: 1rem;
-      font-size: 1.5rem;
+      font-size: 1rem;
       color: #eee;
       margin: auto;
       letter-spacing: .4px;

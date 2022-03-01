@@ -6,8 +6,6 @@ import { FilmItemComponent } from './components/film-item/film-item.component';
 import { FilmDetailComponent } from './components/film-detail/film-detail.component';
 import { RouterModule } from '@angular/router';
 
-
-
 @NgModule({
   declarations: [
     FilmsComponent,
