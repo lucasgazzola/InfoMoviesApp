@@ -7,7 +7,7 @@
     <div class="text-gray-50 p-2">
       <span class="font-bold">Overview:</span> {{ film.overview | slice:0:100 }}...
     </div>
-    <a class="bg-cyan-900 text-slate-50 max-w-fit self-center px-3 py-1" [routerLink]="['/films', film.id]">
+    <a class="bg-cyan-900 text-slate-50 max-w-fit hover:text-slate-800 hover:bg-cyan-200 transition-all self-center px-3 py-1" [routerLink]="['/films', film.id]">
       Read more
     </a>
     <footer class="p-2 text-gray-50 justify-end">
