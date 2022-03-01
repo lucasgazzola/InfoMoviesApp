@@ -1,18 +1,17 @@
-<div class="container">
-  <div *ngFor="let film of films | async" class="card__content">
-    <img class="card__content--poster" src="https://image.tmdb.org/t/p/w500/{{ film.poster_path }}" alt="{{ film.original_title }}" />
-      
-      <h3 class="card__content--title">
+<div class="flex flex-wrap justify-evenly gap-2 p-3">
+  <div *ngFor="let film of films | async" class="w-64 min-w-[250px] my-4 flex flex-col text-center bg-slate-800 rounded-lg">
+    <img class="rounded-t-lg max-h-96 h-96" src="https://image.tmdb.org/t/p/w500/{{ film.poster_path }}" alt="{{ film.original_title }}" />
+      <h3 class="text-slate-50 font-semibold text-xl p-1 bg-cyan-900">
         {{ film.original_title }}
       </h3>
-    <main class="card__content--description">
-      <span>Overview:</span> {{ film.overview | slice:0:100 }}...
-    </main>
-    <a class="card__content--link" [routerLink]="['/films', film.id]">
-      MORE...
+    <div class="text-gray-50 p-2">
+      <span class="font-bold">Overview:</span> {{ film.overview | slice:0:100 }}...
+    </div>
+    <a class="bg-cyan-900 text-slate-50 max-w-fit self-center px-3 py-1" [routerLink]="['/films', film.id]">
+      Read more
     </a>
-    <footer class="card__content--release">
-      Release: {{ film.release_date }}
+    <footer class="p-2 text-gray-50 justify-end">
+      <span class="font-bold">Release:</span> {{ film.release_date }}
     </footer>
   </div>
 </div>

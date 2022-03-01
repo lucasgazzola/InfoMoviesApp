@@ -1,19 +1,24 @@
-<div class="container">
-  <form 
+<div class="container flex w-full items-center py-5 mx-auto justify-center">
+  <form
+  class="max-w-full text-center"
   (ngSubmit)="handleSubmit()"
-  class="search">
+  class="">
     <label *ngIf="lastSearch === ''" for="search">
-      <span>What movie would you like to search?</span>
+      <span class="text-xl text-slate-900 font-semibold">What would you like to search?</span>
     </label>
-    <input 
-      type="text" 
-      name="search" 
-      placeholder="Search a movie..."
-      [(ngModel)]="search"
-    />
-    <button type="submit">🔎</button>
+    <div class="flex mt-2 flex-wrap justify-center">
+      <input 
+        class="py-2 px-4 caret-blue-600 outline-none bg-gray-200 mx-1 rounded-md"
+        type="text"
+        name="search" 
+        placeholder="Search a movie..."
+        [(ngModel)]="search"
+      />
+      <button 
+      class="bg-cyan-600 hover:bg-cyan-800 active:scale-95 text-white py-2 px-4 rounded-md"
+      type="submit">
+        🔎
+      </button>
+    </div>
   </form>
-  <h2 *ngIf="lastSearch">
-      Last search: <span class="last-search">{{ lastSearch }}</span>
-  </h2>
 </div>
