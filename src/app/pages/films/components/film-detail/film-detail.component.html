@@ -1,72 +1,71 @@
-<div class="container">
-  <header>
-    <h1>
+<div class="m-auto px-24 flex flex-col">
+  <header class="text-center mb-8">
+    <h1 class="text-4xl underline">
       {{this.film?.title}}
     </h1>
   </header>
-  <main>
-    <img alt="{{this.film?.title}}" src="https://image.tmdb.org/t/p/w500{{this.film?.poster_path}}"/>
-    <h3>
-      Runtime: {{this.film?.runtime}} minutes
-    </h3>
-    
-    <h3>
-      Genres: 
-    </h3>
-    <ul class="genres-list">
-      <li *ngFor="let genre of this.film?.genres">
-        <h4>
-          {{genre.name}}
-        </h4> 
+  <main class="flex flex-col text-left items-center">
+    <div class="flex flex-row justify-evenly">
+      <div>
+        <img class="rounded-lg w-auto" alt="{{this.film?.title}}" src="https://image.tmdb.org/t/p/w500{{this.film?.poster_path}}"/>
+      </div>
+      <div class="ml-16">
+        <div>
+          <span class="text-lg font-bold">Genres:</span> 
+          <ul class="genres-list">
+            <li *ngFor="let genre of this.film?.genres">
+              <h4 class="pl-5">
+                💥{{genre.name}}
+              </h4> 
+            </li>
+          </ul>
+        </div>
+        <div>
+          <span class="text-xl font-bold">Overview:</span> {{this.film?.overview}}
+        </div>
+      </div>
+    </div>
+    <ul class="mt-6">
+      <li>
+          Runtime: {{this.film?.runtime}} minutes
+      </li>
+      <li class="flex flex-row justify-center">
+        Production Countries:
+        <ul class="countries-list flex">
+          <li *ngFor="let country of this.film?.production_countries" title="{{country.name}}">
+            <img class="mx-1" alt='{{country.name}} flag' src="https://www.filmaffinity.com/imgs/countries2/{{country.iso_3166_1}}.png"> 
+          </li>
+        </ul>
+      </li>
+      <li class="flex flex-row justify-center">
+        Production Companies: 
+       <ul class="companies-list flex">
+          <li *ngFor="let company of this.film?.production_companies">
+            <img class="w-36" alt='{{company.name}} logo' src="https://image.tmdb.org/t/p/w500{{company.logo_path}}"> 
+          </li>
+        </ul>
+      </li>
+      <li>
+        Release date: {{this.film?.release_date}}
+      </li>
+      <li>
+        Vote average: {{this.film?.vote_average}}
+      </li>
+      <li>
+        Original Language: {{this.film?.original_language}}
+      </li>
+      <li>
+        Budget: {{this.film?.budget | currency}}
+      </li>
+      <li>
+        Revenue: {{this.film?.revenue | currency}}
+      </li>
+      <li>
+        Homepage: 
+        <a href="{{this.film?.homepage}}" target="_blank">
+          Go to homepage...
+        </a>
       </li>
     </ul>
-
-    <h3>
-      Production Countries:
-    </h3> 
-    <ul class="countries-list">
-      <li *ngFor="let country of this.film?.production_countries">
-        <img alt='{{country.name}} flag' src="https://www.filmaffinity.com/imgs/countries2/{{country.iso_3166_1}}.png"> {{country.name}} 
-      </li>
-    </ul>
-    
-    <h3>
-      Production Companies: 
-    </h3>
-    <ul class="companies-list">
-      <li *ngFor="let company of this.film?.production_companies">
-        <img alt='{{company.name}} logo' src="https://image.tmdb.org/t/p/w500{{company.logo_path}}"> 
-      </li>
-    </ul>
-    
-    <h5>
-      Release date: {{this.film?.release_date}}
-    </h5>
-    <p>
-      Vote average: {{this.film?.vote_average}}
-    </p>
-    <p>
-      Original Language: {{this.film?.original_language}}
-    </p>
-    <p>
-      Overview: {{this.film?.overview}}
-    </p>
-    <p>
-      Budget: {{this.film?.budget | currency}}<br/>
-      Revenue: {{this.film?.revenue | currency}}
-    </p>
-    <p>
-      Homepage: 
-      <a href="{{this.film?.homepage}}" target="_blank">
-        Go to homepage...
-      </a>
-    </p>
   </main>
 </div>
-
-<!-- {
-  
-  "genres": [],
-  
-  
-  } -->
