@@ -5,6 +5,7 @@ import { FormsModule } from '@angular/forms';
 import { FilmItemComponent } from './components/film-item/film-item.component';
 import { FilmDetailComponent } from './components/film-detail/film-detail.component';
 import { RouterModule } from '@angular/router';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,8 @@ import { RouterModule } from '@angular/router';
   imports: [
     CommonModule,
     FormsModule,
-    RouterModule
+    RouterModule,
+    FontAwesomeModule 
   ]
 })
 export class FilmsModule { }

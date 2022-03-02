@@ -9,13 +9,16 @@ import {  HttpClientModule } from '@angular/common/http';
 import { SearcherComponent } from './shared/components/searcher/seacher.component';
 import { FormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { FooterComponent } from './shared/components/footer/footer.component';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
-    SearcherComponent
+    SearcherComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
@@ -23,7 +26,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     FilmsModule,
     FormsModule,
     HttpClientModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    FontAwesomeModule
   ],
   providers: [],
   bootstrap: [AppComponent]
