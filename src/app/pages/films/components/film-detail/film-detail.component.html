@@ -4,14 +4,14 @@
       {{this.film?.title}}
     </h1>
   </header>
-  <main class="flex flex-col text-left items-center">
+  <main class="flex flex-col text-left items-center text-lg mb-20">
     <div class="flex flex-row justify-evenly">
       <div>
-        <img class="rounded-lg w-auto" alt="{{this.film?.title}}" src="https://image.tmdb.org/t/p/w500{{this.film?.poster_path}}"/>
+        <img class="rounded-lg" alt="{{this.film?.title}}" src="https://image.tmdb.org/t/p/w500{{this.film?.poster_path}}"/>
       </div>
-      <div class="ml-16">
+      <div class="ml-16 w-1/2">
         <div>
-          <span class="text-lg font-bold">Genres:</span> 
+          <span class="text-xl font-bold">Genres:</span> 
           <ul class="genres-list">
             <li *ngFor="let genre of this.film?.genres">
               <h4 class="pl-5">
@@ -20,49 +20,49 @@
             </li>
           </ul>
         </div>
-        <div>
+        <div class="my-5">
           <span class="text-xl font-bold">Overview:</span> {{this.film?.overview}}
+        </div>
+        <div>
+          <span class="text-xl font-bold">Runtime:</span> {{this.film?.runtime}} minutes
         </div>
       </div>
     </div>
     <ul class="mt-6">
-      <li>
-          Runtime: {{this.film?.runtime}} minutes
-      </li>
-      <li class="flex flex-row justify-center">
-        Production Countries:
+      <li class="flex flex-row">
+        <span class="text-xl font-bold">Production Countries:</span>
         <ul class="countries-list flex">
           <li *ngFor="let country of this.film?.production_countries" title="{{country.name}}">
-            <img class="mx-1" alt='{{country.name}} flag' src="https://www.filmaffinity.com/imgs/countries2/{{country.iso_3166_1}}.png"> 
+            <img class="mx-2" alt='{{country.name}} flag' src="https://www.filmaffinity.com/imgs/countries2/{{country.iso_3166_1}}.png"> 
           </li>
         </ul>
       </li>
-      <li class="flex flex-row justify-center">
-        Production Companies: 
+      <li class="flex flex-row">
+        <span class="text-xl font-bold">Production Companies:</span> 
        <ul class="companies-list flex">
-          <li *ngFor="let company of this.film?.production_companies">
-            <img class="w-36" alt='{{company.name}} logo' src="https://image.tmdb.org/t/p/w500{{company.logo_path}}"> 
+          <li *ngFor="let company of this.film?.production_companies" title="{{company.name}}">
+            <img class="mx-2 h-16" alt='{{company.name}} logo' src="https://image.tmdb.org/t/p/w500{{company.logo_path}}"> 
           </li>
         </ul>
       </li>
       <li>
-        Release date: {{this.film?.release_date}}
+        <span class="text-xl font-bold">Release date:</span> {{this.film?.release_date | date: 'dd/MM/yyyy'}}
       </li>
       <li>
-        Vote average: {{this.film?.vote_average}}
+        <span class="text-xl font-bold">Vote average</span> {{this.film?.vote_average }}/10
       </li>
       <li>
-        Original Language: {{this.film?.original_language}}
+        <span class="text-xl font-bold">Original Language:</span> {{this.film?.original_language | uppercase}}
       </li>
       <li>
-        Budget: {{this.film?.budget | currency}}
+        <span class="text-xl font-bold">Budget:</span> {{this.film?.budget | currency}}
       </li>
       <li>
-        Revenue: {{this.film?.revenue | currency}}
+        <span class="text-xl font-bold">Revenue:</span> {{this.film?.revenue | currency}}
       </li>
       <li>
-        Homepage: 
-        <a href="{{this.film?.homepage}}" target="_blank">
+        <span class="text-xl font-bold">Homepage:</span> 
+        <a class="underline text-cyan-700" href="{{this.film?.homepage}}" target="_blank" rel="noopener">
           Go to homepage...
         </a>
       </li>
