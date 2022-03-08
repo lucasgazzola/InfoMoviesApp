@@ -10,43 +10,45 @@ import { Film, Result } from '../../../interfaces/interfaces';
 
 export class GetFilmsService {
   private apiURL: string = `${environment.API_URL}?api_key=${environment.API_KEY}`
-  private trendingURL :string = `https://api.themoviedb.org/3/trending/movie/week?api_key=${environment.API_KEY}`
+  private trendingFilmsURL: string = `${environment.API_URL}trending/movie/week?api_key=${environment.API_KEY}`;
   private _films = new BehaviorSubject<Film[]>([]);
   private _lastSearch = new BehaviorSubject<string>('');
 
   readonly films = this._films.asObservable();
   readonly lastSearch = this._lastSearch.asObservable();
-  
+
   constructor(private http: HttpClient) { }
 
   updateFilmSearch(search: string): void {
-    this.http.get<Result>(this.apiURL+"&query="+search)
-    .subscribe({
-      next: (data) => {
-        this._films.next(data.results);
-        this._lastSearch.next(search);
-      },
-      error : (error) => {
-        console.log('Could not load films: ', error);
-    }});
+    this.http.get<Result>(this.apiURL + "&query=" + search)
+      .subscribe({
+        next: (data) => {
+          this._films.next(data.results);
+          this._lastSearch.next(search);
+        },
+        error: (error) => {
+          console.log('Could not load films: ', error);
+        }
+      });
   }
 
-  getTrendingFilms():void{
-    this.http.get<Result>(this.trendingURL)
-    .subscribe({
-      next: (data) => {
-        this._films.next(data.results);
-      },
-      error : (error) => {
-        console.log('Could not load films: ', error);
-    }});
+  getTrendingFilms(): void {
+    this.http.get<Result>(this.trendingFilmsURL)
+      .subscribe({
+        next: (data) => {
+          this._films.next(data.results);
+        },
+        error: (error) => {
+          console.log('Could not load films: ', error);
+        }
+      });
   }
-  
-  get filmsList(): Observable<Film[]>{
+
+  get filmsList(): Observable<Film[]> {
     return this.films;
   }
 
-  get lastSearchValue(): Observable<string>{
+  get lastSearchValue(): Observable<string> {
     return this.lastSearch;
   }
 }

@@ -1,3 +1,5 @@
+// Films Search intefaces
+
 export interface Result {
   page: number;
   results: Film[];
@@ -23,38 +25,38 @@ export interface Film {
   vote_count: number;
 }
 
-export interface Company{
-  
+export interface Company {
+
   id: number;
   logo_path: string;
   name: string;
   origin_country: string;
 }
 
-export interface Genre{
+export interface Genre {
   id: number;
   name: string;
 }
 
-export interface Collection{
+export interface Collection {
   id: number;
   name: string;
   poster_path: string;
   backdrop_path: string;
 }
 
-export interface Country{
+export interface Country {
   iso_3166_1: string;
   name: string;
 }
 
-export interface Language{
+export interface Language {
   english_name: string;
   iso_639_1: string;
   name: string;
 }
 
-export interface FilmByID{
+export interface FilmByID {
   adult: boolean;
   backdrop_path: string;
   belongs_to_collection: Collection;
@@ -80,4 +82,25 @@ export interface FilmByID{
   video: boolean;
   vote_average: number;
   vote_count: number;
+}
+
+
+//People Search intefaces
+
+export interface PeopleResult {
+  page: number;
+  results: People[];
+  total_pages: number;
+  total_results: number;
+}
+
+export interface People {
+  adult: boolean;
+  gender: number;
+  id: number;
+  known_for: Film[];
+  known_for_department: string;
+  name: string;
+  popularity: number;
+  profile_path: string
 }
